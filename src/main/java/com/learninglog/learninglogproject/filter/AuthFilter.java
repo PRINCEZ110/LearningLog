@@ -23,10 +23,12 @@ public class AuthFilter implements Filter {
         boolean isUserLoggedIn = (session != null && session.getAttribute("user") != null);
         boolean isAuthPage = uri.contains("login") || uri.contains("register");
 
+        boolean isStaticpage = uri.contains("/image/") || uri.contains("/staic/");
+
         if(isUserLoggedIn && isAuthPage){
             res.sendRedirect("/");
         }
-        if(isUserLoggedIn || isAuthPage){
+        if(isUserLoggedIn || isAuthPage || isStaticpage ){
             chain.doFilter(req,res);
         }
         else {

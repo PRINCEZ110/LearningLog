@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" src="/static/css/style.css">
 </head>
 <body>
 <%
@@ -17,6 +18,8 @@
 <%=
     errorMsg
 %>
+<p style="color: red;" >${error}</p>
+<p style="color: green" >${success}</p>
 <form action="login" method="post">
     <label>Email</label>
     <input type="text" name="email">
